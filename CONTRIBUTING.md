@@ -8,7 +8,7 @@ OddRun requires Python 3.10 or higher.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/oddrun/oddrun.git
+   git clone https://github.com/dkshah25/oddrun.git
    cd oddrun
    ```
 
