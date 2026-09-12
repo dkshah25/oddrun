@@ -5,20 +5,23 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "oddrun"
 version = "0.1.0"
-description = "Investigates why the same Python program behaves differently across environments."
+description = "Experimental diagnosis of Python behavior differences across environments."
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
 authors = [
-    { name = "OddRun Contributors" }
+    { name = "Dharmit Kunal Shah" }
+]
+maintainers = [
+    { name = "Dharmit Kunal Shah" }
 ]
 keywords = [
+    "python",
     "debugging",
-    "environment",
     "reproducibility",
-    "diff",
-    "snapshot",
-    "developer-tools"
+    "environment",
+    "diagnostics",
+    "testing"
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -45,10 +48,11 @@ dev = [
 oddrun = "oddrun.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/oddrun/oddrun"
-Documentation = "https://github.com/oddrun/oddrun#readme"
-Repository = "https://github.com/oddrun/oddrun"
-Issues = "https://github.com/oddrun/oddrun/issues"
+Homepage = "https://github.com/dkshah25/oddrun"
+Documentation = "https://github.com/dkshah25/oddrun#readme"
+Repository = "https://github.com/dkshah25/oddrun"
+Issues = "https://github.com/dkshah25/oddrun/issues"
+Changelog = "https://github.com/dkshah25/oddrun/blob/main/CHANGELOG.md"
 
 [tool.setuptools.packages.find]
 where = ["src"]
