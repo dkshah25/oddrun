@@ -124,8 +124,7 @@ OddRun classifies findings using conservative evidence standards rather than cla
 ## Security & Privacy
 
 OddRun is strictly **local-first**:
-- **Zero Telemetry**: No tracking, analytics, or external requests.
-- **Offline First**: Operates 100% offline with zero external runtime dependencies.
+- **Local-First & Zero Telemetry**: OddRun runs locally and does not require a cloud service or send telemetry. Uses standard-library native runtime dependencies.
 - **Subprocess Isolation**: Spawns isolated process trees (`shell=False`) without mutating parent `os.environ`.
 - **Automatic Secret Redaction**: Sensitive environment keys (`API_KEY`, `SECRET`, `PASSWORD`, `TOKEN`, `CREDENTIAL`, `AUTH`, etc.) are automatically replaced with `"<present>"` before saving snapshots or records to disk.
 
