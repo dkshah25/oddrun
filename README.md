@@ -4,8 +4,6 @@
 
 Find what actually causes your Python code to behave differently across environments.
 
----
-
 ## Why OddRun?
 
 Traditional environment tools answer:
@@ -19,15 +17,13 @@ OddRun experimentally investigates:
 - **Environment Diff**: *"TZ differs between local machine and server."*
 - **OddRun**: *"Changing `TZ` from the baseline value (`Asia/Kolkata`) to the target value (`UTC`) consistently reproduced the observed failure."*
 
----
-
 ## Quickstart
 
 ```bash
 pip install oddrun
 ```
 
----
+OddRun operates locally using Python standard library native tools with zero external runtime dependencies.
 
 ## Hero Demo: `record` → `why` Workflow
 
@@ -82,8 +78,6 @@ Recommendation:
 Note: This is strong causal evidence, not proof that these are the unique possible causes.
 ```
 
----
-
 ## How It Works
 
 OddRun follows a controlled 6-stage lifecycle:
@@ -99,8 +93,6 @@ OBSERVE → COMPARE → PERTURB → RE-RUN → MEASURE → EXPLAIN
 5. **MEASURE**: Compares structural behavior signatures (requires 3x multi-run confirmation for stability).
 6. **EXPLAIN**: Reports forward-verified **Experimentally Supported Causal Factors**.
 
----
-
 ## Evidence & Causal Reasoning
 
 OddRun classifies findings using conservative evidence standards rather than claiming absolute certainty:
@@ -108,18 +100,14 @@ OddRun classifies findings using conservative evidence standards rather than cla
 - **`EXPERIMENTALLY SUPPORTED CAUSAL FACTOR`**: Changing a single candidate factor reproduces the target failure signature across 3/3 identical runs.
 - **Evidence Rating (`MODERATE`)**: Indicates forward verification. OddRun explicitly avoids claiming "Guaranteed Root Cause" or "Unique Cause" because un-tested environmental variables or system dependencies may also contribute.
 
----
-
 ## Commands
 
-| Command | Question / Action | Input Artifact |
+| Command | Question / Action | Input / Artifact |
 | :--- | :--- | :--- |
 | `oddrun capture` | **What's different?** Captures environment state | `EnvironmentSnapshot` JSON |
 | `oddrun compare` | **What changed?** Compares two environment snapshots | Two `EnvironmentSnapshot` JSONs |
 | `oddrun record` | **What actually happened here?** Executes command 1x on target | `ExecutionRecord` JSON |
 | `oddrun why` | **Which difference explains target behavior?** | `ExecutionRecord` JSON + `<command>` |
-
----
 
 ## Security & Privacy
 
@@ -128,15 +116,11 @@ OddRun is strictly **local-first**:
 - **Subprocess Isolation**: Spawns isolated process trees (`shell=False`) without mutating parent `os.environ`.
 - **Automatic Secret Redaction**: Sensitive environment keys (`API_KEY`, `SECRET`, `PASSWORD`, `TOKEN`, `CREDENTIAL`, `AUTH`, etc.) are automatically replaced with `"<present>"` before saving snapshots or records to disk.
 
----
-
 ## Limitations
 
 - **Perturbation Scope**: Only perturbable environment variables (Tier 1 safe variables, Tier 2 PATH/PYTHONPATH with opt-in) are tested. System architecture, OS kernel, and Python C-extensions are observed but not perturbed.
 - **Reverse Verification**: Static snapshot mode tests forward causality (`baseline + target_value`). Reverse testing (`target + baseline_value`) is marked `UNAVAILABLE` when the target environment cannot be executed locally.
 - **Multi-Factor Interactions**: Evaluates candidate factors independently; multi-variable combinatorial interactions are not tested in v0.1.0.
-
----
 
 ## Development
 
@@ -154,8 +138,6 @@ python -m ruff check .
 python -m build
 ```
 
----
-
 ## License
 
-[MIT License](LICENSE)
+[MIT License](https://github.com/dkshah25/oddrun/blob/main/LICENSE)
